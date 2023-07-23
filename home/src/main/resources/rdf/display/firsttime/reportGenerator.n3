@@ -1,0 +1,27 @@
+# $This file is distributed under the terms of the license in LICENSE$
+
+@prefix default: <http://vitro.mannlib.cornell.edu/ns/default/pages#> .
+
+default:report-generator-dg
+    a   <java:edu.cornell.mannlib.vitro.webapp.utils.dataGetter.FixedHTMLDataGetter> ;
+    <http://vitro.mannlib.cornell.edu/ontologies/display/1.1#htmlValue>
+        """
+        <iframe id="indexFrame" src="/vitro/index.html" style="width: 100%; height: 100vh; border: none;"></iframe>
+
+        <!-- Add the following JavaScript code within a script tag -->
+        <script>
+          function loadIndexHtml() {
+            document.getElementById('indexFrame').src = 'index.html';
+          }
+        </script>
+        """@en-US ;
+        <http://vitro.mannlib.cornell.edu/ontologies/display/1.1#saveToVar>
+                "reportGenerator" .
+default:report-generator
+    a   <http://vitro.mannlib.cornell.edu/ontologies/display/1.1#Page> ;
+    <http://vitro.mannlib.cornell.edu/ontologies/display/1.1#hasDataGetter>
+        default:report-generator-dg ;
+    <http://vitro.mannlib.cornell.edu/ontologies/display/1.1#title>
+        "Report Generator tool"@en-US ;
+    <http://vitro.mannlib.cornell.edu/ontologies/display/1.1#urlMapping>
+        "/report" .

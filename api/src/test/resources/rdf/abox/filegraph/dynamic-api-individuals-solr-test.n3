@@ -1,0 +1,56 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> .
+@prefix dynapi: <https://vivoweb.org/ontology/vitro-dynamic-api#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/procedure/solrTestProcedure>
+        a                           dynapi:Procedure ;
+        rdfs:label                  "Solr test action"@en-US ;
+#        dynapi:hasAssignedRPC       <https://vivoweb.org/ontology/vitro-dynamic-api/rpc/solrTestRPC1> ;
+        dynapi:hasFirstStep         <https://vivoweb.org/ontology/vitro-dynamic-api/step/solrTestStep1> .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/step/solrTestStep1>
+        a                           dynapi:Step, dynapi:OperationalStep ;
+        rdfs:label                  "Solr Test operational step 1"@en-US ;
+        dynapi:hasOperation         <https://vivoweb.org/ontology/vitro-dynamic-api/solrQuery/genericSolrTextQuery> .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/solrQuery/genericSolrTextQuery>
+        a                           dynapi:Operation, dynapi:SolrQuery ;
+        rdfs:label                  "Test solr query 1"@en-US ;
+        dynapi:requiresParameter    <https://vivoweb.org/ontology/vitro-dynamic-api/parameter/textSearchParam> ;
+        dynapi:solrQueryText        "http" ;
+        dynapi:solrField            "Field1" , "Field2" ;
+        dynapi:solrFilter           "Field2:?textSearchParam" , "ALTTEXT:get" ;
+        dynapi:solrOffset           "3" ;
+        dynapi:solrLimit            "10" ;
+        dynapi:solrSort             "testField   ASC" , "?sortFieldParam ?sortFieldDirection" ;
+        dynapi:solrFacet            "ALLTEXT" .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/parameter/textSearchParam>
+        a                           dynapi:Parameter ;
+        rdfs:label                  "Search text for solr query 1"@en-US ;
+        dynapi:name                 "searchText" ;
+        dynapi:hasType              <https://vivoweb.org/ontology/vitro-dynamic-api/parameter/type/string> .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/parameter/sortFieldParam>
+        a                           dynapi:Parameter ;
+        rdfs:label                  "Choose document field for sorting"@en-US ;
+        dynapi:name                 "fildForSorting" ;
+        dynapi:hasType              <https://vivoweb.org/ontology/vitro-dynamic-api/parameter/type/string> .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/parameter/sortFieldDirection>
+        a                           dynapi:Parameter ;
+        rdfs:label                  "Choose sort direction"@en-US ;
+        dynapi:paramName            "sordDirection" ;
+        dynapi:hasType     <https://vivoweb.org/ontology/vitro-dynamic-api/parameter/type/string> .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/rpc/solrTestRPC1>
+        a                           dynapi:Rpc ;
+        dynapi:name                 "solr_test_action"@en-US ;
+        dynapi:procedure            <https://vivoweb.org/ontology/vitro-dynamic-api/procedure/solrTestProcedure> ;
+        dynapi:hasDefaultMethod     <https://vivoweb.org/ontology/vitro-dynamic-api/http_method/post> ;
+        dynapi:minAPIVersionMin     "0.1.0" .
+
+

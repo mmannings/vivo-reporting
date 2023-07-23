@@ -1,0 +1,41 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> .
+@prefix dynapi: <https://vivoweb.org/ontology/vitro-dynamic-api#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vivoweb.org/resourceAPI/resource/report_generator>
+        a                                   dynapi:ResourceAPI ;
+        rdfs:label                          "Report generator resource API 1"@en-US ;
+        dynapi:name                         "report_generator" ;
+        dynapi:minAPIVersion                "0.1.0" ;
+        dynapi:hasCustomRESTAction          <https://vivoweb.org/custom_actions/execute_report_generator> ;
+        dynapi:hasCustomRESTAction          <https://vivoweb.org/custom_actions/export_report_generator> ;
+        dynapi:hasCustomRESTAction          <https://vivoweb.org/custom_actions/import_report_generator> ; 
+        dynapi:onGetAll                     <https://vivoweb.org/procedure/list_report_generators> ;
+        dynapi:onGet                        <https://vivoweb.org/procedure/get_report_generator> ;
+        dynapi:onDelete                     <https://vivoweb.org/procedure/delete_report_generator> ;
+#        dynapi:onPut                        <https://vivoweb.org/procedure/update_report_generator> ;
+        dynapi:onPost                       <https://vivoweb.org/procedure/create_report_generator> .
+
+<https://vivoweb.org/custom_actions/execute_report_generator>
+        a                                   dynapi:CustomRESTAction ;
+        rdfs:label                          "Execute report generator"@en-US ;
+        dynapi:name                         "execute_report_generator" ;
+        dynapi:hasDefaultMethod             <https://vivoweb.org/ontology/vitro-dynamic-api/http_method/put> ;
+        dynapi:forwardsTo                   <https://vivoweb.org/procedure/execute_report_generator> .
+        
+<https://vivoweb.org/custom_actions/export_report_generator>
+        a                                   dynapi:CustomRESTAction ;
+        rdfs:label                          "Export report generator"@en-US ;
+        dynapi:name                         "export_report_generator" ;
+        dynapi:hasDefaultMethod             <https://vivoweb.org/ontology/vitro-dynamic-api/http_method/put> ;
+        dynapi:forwardsTo                   <https://vivoweb.org/procedure/export_report_generator> .
+
+<https://vivoweb.org/custom_actions/import_report_generator>
+        a                                   dynapi:CustomRESTAction ;
+        rdfs:label                          "Import report generator"@en-US ;
+        dynapi:name                         "import_report_generator" ;
+        dynapi:hasDefaultMethod             <https://vivoweb.org/ontology/vitro-dynamic-api/http_method/put> ;
+        dynapi:forwardsTo                   <https://vivoweb.org/procedure/import_report_generator> .

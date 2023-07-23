@@ -1,0 +1,19 @@
+<div class="file-upload">
+  <input type="file" style="display: none" #fileInput (change)="onFileSelected($event)">
+  <div class="file-drop-area" dragAndDrop (onFileDropped)="onFileDropped($event)">
+    <ng-container *ngIf="!uploadedFile">
+        <mat-icon>file_upload</mat-icon>
+      <span class="drop-text"><strong>Choose a file</strong> or drag it here</span>
+      <button mat-button class="browse-button" (click)="fileInput.click()">Browse file</button>
+    </ng-container>
+    <ng-container *ngIf="uploadedFile">
+      <div class="uploaded-file">
+        <span>You have successfully uploaded file:</span>
+        <span class="file-name">{{ uploadedFile.name }}</span>
+        <button mat-icon-button class="cancel-icon" (click)="cancelUpload()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>

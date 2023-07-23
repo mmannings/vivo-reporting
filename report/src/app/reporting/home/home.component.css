@@ -1,0 +1,65 @@
+.welcome-message {
+  display: flex;
+  height: 100%;
+}
+
+.example-container {
+  flex-grow: 1;
+  min-width: 50%;
+  background-color: white; /* Set the background color to white */
+}
+
+.content {
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 18px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 180px auto; /* Adjust column widths as needed */
+  height: 100vh; /* Set container height to full viewport height */
+}
+
+.menu {
+  display: flex;
+  background-color: white;
+}
+
+.content {
+  padding: 0;
+  background-color: white;
+}
+
+.mat-sidenav-container {
+  height: 100%; /* Ensure the sidenav container takes up full height */
+}
+
+.mat-sidenav {
+  height: 100%; /* Ensure the sidenav takes up full height */
+}
+
+.mat-sidenav-content {
+  height: 100%; /* Ensure the sidenav content takes up full height */
+  display: flex;
+  flex-direction: column;
+}
+/* Rest of the CSS styles remain the same */
+
+
+
+

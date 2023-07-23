@@ -1,0 +1,29 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> .
+@prefix dynapi: <https://vivoweb.org/ontology/vitro-dynamic-api#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vivoweb.org/ontology/vitro-dynamic-api/procedure/load_procedure>
+        a                                   dynapi:Procedure ;
+        rdfs:label                          "Load procedure"@en-US ;
+        dynapi:hasFirstStep                 <https://vivoweb.org/ontology/vitro-dynamic-api/procedure/load_procedure/step1> .
+        
+<https://vivoweb.org/ontology/vitro-dynamic-api/procedure/load_procedure/step1>
+        a                                   dynapi:OperationalStep ;
+        rdfs:label                          "Step 1"@en-US ;
+        dynapi:hasOperation                 <https://vivoweb.org/ontology/vitro-dynamic-api/procedure/load_procedure/operation/load_procedure> .
+        
+<https://vivoweb.org/ontology/vitro-dynamic-api/procedure/load_procedure/operation/load_procedure> 
+        a                                   dynapi:ProcedurePoolAtomicOperation ;
+        rdfs:label                          "Load procedure operation"@en-US ;
+        dynapi:requiresParameter            <https://vivoweb.org/ontology/vitro-dynamic-api/procedure/load_procedure/operation/load_procedure/parameter/uri> ;
+        dynapi:poolOperationType            "load" .
+        
+<https://vivoweb.org/ontology/vitro-dynamic-api/procedure/load_procedure/operation/load_procedure/parameter/uri>
+        a                                   dynapi:Parameter ;
+        rdfs:label                          "Procedure uri parameter"@en-US ;
+        dynapi:name                         "uri" ;
+        dynapi:hasType                      <https://vivoweb.org/ontology/vitro-dynamic-api/parameter/type/string> .
+
